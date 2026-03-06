@@ -1,0 +1,45 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem;
+}
+
+.auth-container {
+    // Give the register form a touch more width due to more fields
+    max-width: 500px;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+// Fade in animation for the conditional Organizer Company field
+.form-group[ng-reflect-ng-if="role === 'Organizer'"],
+div[ng-reflect-ng-if="role === 'Organizer'"],
+div[ngIf="role === 'Organizer'"] {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
