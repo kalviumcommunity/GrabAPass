@@ -1,0 +1,44 @@
+<div class="auth-container">
+  <h2>Register for GrabAPass</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone_number">Phone Number (Optional):</label>
+      <input type="text" id="phone_number" [(ngModel)]="phone_number" name="phone_number" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required />
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role:</label>
+      <select id="role" [(ngModel)]="role" name="role" required>
+        <option value="Customer">Customer</option>
+        <option value="Organizer">Organizer</option>
+      </select>
+    </div>
+
+    <div class="form-group" *ngIf="role === 'Organizer'">
+      <label for="organizer_company">Company Name (Optional):</label>
+      <input type="text" id="organizer_company" [(ngModel)]="organizer_company" name="organizer_company" />
+    </div>
+
+    <div *ngIf="error" class="error-box">
+      {{ error }}
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a routerLink="/login">Login here</a></p>
+</div>
